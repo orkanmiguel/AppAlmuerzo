@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 /* const data = [{ _id: "lala", name: "Churrasco", desc: "Plato Tipico!, palta" }]; */
 
 const Meals = ({ navigation }) => {
-  const { loading, data: meals } = useFecth("http://192.168.1.87:3001/Meals");
+  const { loading, data: meals } = useFecth("http:/localhost:3001/Meals");
 
   return (
     <View style={styles.container}>

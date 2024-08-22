@@ -5,8 +5,8 @@ import {
 import { createStackNavigator } from "@react-navigation/stack";
 import MealsScreen from "./screens/Meals";
 import ModalScreen from "./screens/Modal";
-/* import LoginScreen from "./screens/Login";
-import RegisterScreen from "./screens/Register"; */
+import LoginScreen from "./screens/Login";
+import RegisterScreen from "./screens/Register";
 
 //onboarding son pantallas para mantener al ususario ahi, por ejemplo login, registro
 
@@ -14,7 +14,27 @@ const AppNavigator = createStackNavigator();
 
 function MyStack() {
   return (
-    <AppNavigator.Navigator initialRouteName="Meals">
+    <AppNavigator.Navigator initialRouteName="LoginScreen">
+      <AppNavigator.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{
+          title: "Login",
+          headerBackTitleVisible: true,
+          headerTintColor: "black",
+          headerStyle: { backgroundColor: "red" },
+        }}
+      />
+      <AppNavigator.Screen
+        name="RegisterScreen"
+        component={RegisterScreen}
+        options={{
+          title: "RegisterScreen",
+          headerBackTitleVisible: true,
+          headerTintColor: "black",
+          headerStyle: { backgroundColor: "red" },
+        }}
+      />
       <AppNavigator.Screen
         name="Meals"
         component={MealsScreen}

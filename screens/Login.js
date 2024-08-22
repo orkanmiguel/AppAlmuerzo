@@ -1,7 +1,7 @@
 import React from "react";
 import useForm from "../hooks/useForm";
 
-import { Text, TextInput, View, StyleSheet, Button } from "react-native";
+import { Text, TextInput, View, StyleSheet, Button, Alert } from "react-native";
 
 const styles = StyleSheet.create({
   title: {
@@ -32,6 +32,23 @@ export default ({ navigation }) => {
   };
   const onSubmit = (values) => {
     console.log(values);
+    fetch("http://192.168.1.87:3001/Login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((x) => x.text())
+      .then((x) => {
+        try {
+          return JSON.parse(x);
+        } catch {
+          throw x;
+        }
+      })
+      .then((x) => console.log(x))
+      .catch((e) => console.log(e));
   };
 
   const { subscribe, inputs, handleSubmit } = useForm(initialState, onSubmit);
@@ -40,16 +57,19 @@ export default ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.title}>Iniciar Sesion</Text>
       <TextInput
+        autoCapitalize="none"
         value={inputs.email}
         onChangeText={subscribe("email")}
         style={styles.input}
         placeholder="Email"
       />
       <TextInput
+        autoCapitalize="none"
         value={inputs.password}
         onChangeText={subscribe("password")}
         style={styles.input}
         placeholder="Password"
+        secureTextEntry={true}
       />
       <Button title="iniciar sesion" onPress={handleSubmit} />
       <Button

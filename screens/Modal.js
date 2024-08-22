@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 
 export default ({ route, navigation }) => {
   const id = route.params.id;
-  const { loading, data } = useFecth(`http://192.168.1.87:3001/Meals/${id}`);
+  const { loading, data } = useFecth(`http://localhost:3001/Meals/${id}`);
   console.log(data);
 
   return (
@@ -27,7 +27,7 @@ export default ({ route, navigation }) => {
           <Button
             title="Aceptar"
             onPress={() => {
-              fetch("http://192.168.1.87:3001/Orders", {
+              fetch("http://localhost:3001/Orders", {
                 method: "POST",
                 headers: {
                   "Content-Type": "aplication/json",

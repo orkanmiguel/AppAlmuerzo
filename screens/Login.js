@@ -32,7 +32,7 @@ export default ({ navigation }) => {
   };
   const onSubmit = (values) => {
     console.log(values);
-    fetch("http://192.168.1.87:3001/Login", {
+    fetch("http://localhost:3001/Login", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",

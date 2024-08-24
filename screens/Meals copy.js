@@ -20,7 +20,7 @@ const data = [{ _id: "lala", name: "Churrasco", desc: "Plato Tipico!, palta" }];
 const Meals = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>Hola Meals</Text>
+      <Text>Hola Mealssss</Text>
     </View>
   );
 };
